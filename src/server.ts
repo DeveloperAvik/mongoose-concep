@@ -3,16 +3,18 @@ import cors from "cors"
 import mongoose from "mongoose"
 
 import config from "./config/index"
+import userRouter from "./modules/users/user.route"
 
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use(userRouter)
 
 
 app.get("/", (req, res) => {
-    res.send({success: true, message: "Server is running"})
+    res.send({ success: true, message: "Server is running" })
 })
 
 app.listen(config.port, () => {

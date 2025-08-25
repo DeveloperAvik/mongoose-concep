@@ -1,4 +1,4 @@
-import { Schema } from "mongoose"
+import {model, Schema } from "mongoose"
 
 const userSchema = new Schema<IUser>({
     name: { type: String, required: true, unique: true },
@@ -8,3 +8,6 @@ const userSchema = new Schema<IUser>({
     address: { type: String, required: true },
     role: { type: String, enum: ['user', 'admin'], default: 'user' },
 })
+
+const User = model<IUser>('User', userSchema)
+export default User;
