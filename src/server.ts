@@ -4,13 +4,15 @@ import mongoose from "mongoose"
 
 import config from "./config/index"
 import userRouter from "./modules/users/user.route"
+import routes from "./modules/routes/indes"
 
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use(userRouter)
+
+app.use(routes)
 
 
 app.get("/", (req, res) => {

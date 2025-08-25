@@ -14,4 +14,18 @@ const registerUser = async (req: Request, res: Response ) => {
     })
 }
 
-export { registerUser }
+
+
+const getUsers = async (req: Request, res: Response ) => {
+
+
+    const data = await User.find();
+
+    res.send({
+        success: true,
+        message: "User retrive successfully",
+        data
+    })
+}
+
+export { registerUser , getUsers}
